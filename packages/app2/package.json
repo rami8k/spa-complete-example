@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "description": "@bna/app2",
+  "name": "@bna/app2",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve --mode development"
+  },
+  "dependencies": {
+    "single-spa-vue": "^2.4.1",
+    "systemjs-webpack-interop": "^2.3.7",
+    "vue": "^2.6.14",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "html-webpack-plugin": "^4.4.1",
+    "style-loader": "^3.0.0",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
