@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Container Config</title>
+
+    <!-- Add your organization's prod import map URL to this script's src  -->
+    <script type="systemjs-importmap" src="http://news-cdn.bindg.com/importmap.json"></script>
+
+    <% if (isLocal) { %>
+      <script type="systemjs-importmap">
+        {
+          "imports": {
+            "app1": "http://localhost:3001/dist/remoteEntry.js",
+            "app1/": "http://localhost:3001/dist/",
+            "app2": "http://localhost:3002/dist/remoteEntry.js",
+            "app2/": "http://localhost:3002/dist/"
+          }
+        }
+    </script>
+    <% } %>
+
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+    <% if (isLocal) { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+    <% } else { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+    <% } %>
+
+  </head>
+  <body>
+    <div class="mui-container">
+      <div id="single-spa-application:app1-article"></div>
+      <br/>
+      <div id="single-spa-application:app2-brand"></div>
+      <br/>
+      <div id="single-spa-application:app3-brand"></div>
+    </div>
+  </body>
+</html>

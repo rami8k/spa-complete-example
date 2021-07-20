@@ -2,6 +2,7 @@
   "version": "1.0.0",
   "description": "@bna/app2",
   "name": "@bna/app2",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",

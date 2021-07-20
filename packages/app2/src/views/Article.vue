@@ -1,6 +1,6 @@
 <template>
   <div>
-    Article Page
+    App2 - Article Page
     <Icon>
       <template v-slot:label>
         Manage Subscription

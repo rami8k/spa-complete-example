@@ -1,6 +1,6 @@
 <template>
   <div>
-    Brand Landing Page
+    App1 - Brand Landing Page
     <Icon>
       <template v-slot:label>
         Manage Subscription

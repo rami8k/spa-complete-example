@@ -36,6 +36,7 @@ module.exports = {
   optimization: {
     minimize: false
   },
+  devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
     port: 3002,
@@ -48,19 +49,12 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: "@bna/app2",
-      library: { type: 'var', name: 'app2' },
+      library: { type: 'system' },
       filename: "remoteEntry.js",
       exposes: [
         { './BrandLanding': './src/views/BrandLanding' }
       ],
-      shared: {
-        'vue': {
-          eager: true
-        },
-        'vue-router': {
-          eager: true
-        }
-      }
+      shared: ['vue']
     })
   ]
 };

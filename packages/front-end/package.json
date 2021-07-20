@@ -2,10 +2,11 @@
   "name": "home",
   "version": "0.0.0",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack --mode production",
-    "serve": "webpack serve"
+    "serve": "webpack serve --env isLocal"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",
