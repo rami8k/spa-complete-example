@@ -1,34 +1,34 @@
 import { registerApplication, start } from 'single-spa';
 
-let initScope = []
+let sharedScope = []
 
-registerApplication(
-  'app1-article',
-  () => System.import('app1').then(app => {
-    app.init(initScope)
-    return app.get('./Article').then(module => {
+registerApplication({
+  name: 'app1-article',
+  app: () => System.import('@bna/app1').then(app => {
+    app.init(sharedScope)
+    return app.get('Article').then(module => {
       return module()
     })
   }),
-  location => location.pathname.startsWith('/')
-)
+  activeWhen: '/'
+})
 
-registerApplication(
-  'app1-brand',
-  () => System.import('app1').then(app => {
-    return app.get('./BrandLanding').then(module => {
+registerApplication({
+  name: 'app1-brand',
+  app: () => System.import('@bna/app1').then(app => {
+    return app.get('BrandLanding').then(module => {
       return module()
     })
   }),
-  location => location.pathname.startsWith('/')
-)
+  activeWhen: '/'
+})
 
 registerApplication(
   'app2-brand',
-  () => System.import('app2').then(app => {
-    app.init(initScope)
+  () => System.import('@bna/app2').then(app => {
+    app.init(sharedScope)
 
-    return app.get('./BrandLanding').then(module => {
+    return app.get('BrandLanding').then(module => {
       return module()
     })
   }),
