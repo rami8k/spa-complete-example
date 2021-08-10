@@ -21,6 +21,7 @@ module.exports = (webpackConfigEnv, argv) => {
   
     devServer: {
       historyApiFallback: true,
+      disableHostCheck: true,
       port: 3000
     },
   

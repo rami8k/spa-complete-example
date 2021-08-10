@@ -1,4 +1,7 @@
-import { registerApplication, start } from 'single-spa';
+import { registerApplication, start } from 'single-spa'
+import { pathToRegexp } from 'path-to-regexp'
+
+const regexp = pathToRegexp(location.pathname)
 
 let sharedScope = []
 
@@ -10,7 +13,7 @@ registerApplication({
       return module()
     })
   }),
-  activeWhen: '/'
+  activeWhen: () => regexp.test('/news/:channel/:article')
 })
 
 registerApplication({
@@ -20,22 +23,20 @@ registerApplication({
       return module()
     })
   }),
-  activeWhen: '/'
+  activeWhen: () => regexp.test('/news/bloomberglawnews')
 })
 
-registerApplication(
-  'app2-brand',
-  () => System.import('@bna/app2').then(app => {
+registerApplication({
+  name: 'app2-brand',
+  app: () => System.import('@bna/app2').then(app => {
     app.init(sharedScope)
 
     return app.get('BrandLanding').then(module => {
       return module()
     })
   }),
-  location => { 
-    return location.pathname.startsWith('/')
-  }
-);
+  activeWhen: () => regexp.test('/news/bloomberglawnews1')
+})
 
 // registerApplication(
 //   'app1-article',
