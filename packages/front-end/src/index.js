@@ -19,6 +19,7 @@ registerApplication({
 registerApplication({
   name: 'app1-brand',
   app: () => System.import('@bna/app1').then(app => {
+    app.init(sharedScope)
     return app.get('BrandLanding').then(module => {
       return module()
     })
@@ -35,7 +36,7 @@ registerApplication({
       return module()
     })
   }),
-  activeWhen: () => regexp.test('/news/bloomberglawnews1')
+  activeWhen: () => regexp.test('/news/bloomberglawnews')
 })
 
 // registerApplication(
