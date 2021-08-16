@@ -1,41 +1,27 @@
 import { registerApplication, start } from 'single-spa'
 import { pathToRegexp } from 'path-to-regexp'
+import { importApp } from './helpers/importApp'
 
 const regexp = pathToRegexp(location.pathname)
 
-let sharedScope = []
+let importedApps = []
+let shareScope = []
 
 registerApplication({
   name: 'app1-article',
-  app: () => System.import('@bna/app1').then(app => {
-    app.init(sharedScope)
-    return app.get('Article').then(module => {
-      return module()
-    })
-  }),
+  app: () => importApp('@bna/app1/Article', shareScope, importedApps),
   activeWhen: () => regexp.test('/news/:channel/:article')
 })
 
 registerApplication({
   name: 'app1-brand',
-  app: () => System.import('@bna/app1').then(app => {
-    app.init(sharedScope)
-    return app.get('BrandLanding').then(module => {
-      return module()
-    })
-  }),
+  app: () => importApp('@bna/app1/BrandLanding', shareScope, importedApps),
   activeWhen: () => regexp.test('/news/bloomberglawnews')
 })
 
 registerApplication({
   name: 'app2-brand',
-  app: () => System.import('@bna/app2').then(app => {
-    app.init(sharedScope)
-
-    return app.get('BrandLanding').then(module => {
-      return module()
-    })
-  }),
+  app: () => importApp('@bna/app2/BrandLanding', shareScope, importedApps),
   activeWhen: () => regexp.test('/news/bloomberglawnews')
 })
 
