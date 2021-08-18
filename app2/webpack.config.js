@@ -48,11 +48,11 @@ module.exports = {
       template: path.resolve(__dirname, "public", "index.html")
     }),
     new ModuleFederationPlugin({
-      name: "@bna/app2",
+      name: "app2",
       library: { type: 'system' },
       filename: "remoteEntry.js",
       exposes: [
-        { 'BrandLanding': './src/views/BrandLanding' }
+        { 'view2': './src/views/View2' }
       ],
       shared: ['vue']
     })

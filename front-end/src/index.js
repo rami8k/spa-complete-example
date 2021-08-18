@@ -9,31 +9,31 @@ let shareScope = []
 
 registerApplication({
   name: 'app1-article',
-  app: () => importApp('@bna/app1/Article', shareScope, importedApps),
+  app: () => importApp('app1/Article', shareScope, importedApps),
   activeWhen: () => regexp.test('/news/:channel/:article')
 })
 
 registerApplication({
-  name: 'app1-brand',
-  app: () => importApp('@bna/app1/BrandLanding', shareScope, importedApps),
+  name: 'app1-view1',
+  app: () => importApp('app1/view1', shareScope, importedApps),
   activeWhen: () => regexp.test('/news/bloomberglawnews')
 })
 
 registerApplication({
-  name: 'app2-brand',
-  app: () => importApp('@bna/app2/BrandLanding', shareScope, importedApps),
+  name: 'app2-view2',
+  app: () => importApp('app2/view2', [], importedApps),
   activeWhen: () => regexp.test('/news/bloomberglawnews')
 })
 
 // registerApplication(
 //   'app1-article',
-//   () => import('app1/Article'),
+//   () => import('app1/View1'),
 //   location => location.pathname.startsWith('/')
 // )
 
 // registerApplication(
 //   'app2-brand',
-//   () => import('app2/BrandLanding'),
+//   () => import('app2/View2'),
 //   location => { 
 //     return location.pathname.startsWith('/')
 //   }

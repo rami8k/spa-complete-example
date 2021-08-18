@@ -1,11 +1,6 @@
 <template>
   <div>
-    App1 - Brand Landing Page
-    <Icon>
-      <template v-slot:label>
-        Manage Subscription
-      </template>
-    </Icon>
+    App1 - View2
   </div>
 </template>
 

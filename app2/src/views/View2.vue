@@ -1,11 +1,6 @@
 <template>
   <div>
-    App 1 - Article Page
-    <Icon>
-      <template v-slot:label>
-        Manage Subscription
-      </template>
-    </Icon>
+    App2 - View2
   </div>
 </template>
 
@@ -15,7 +10,7 @@ import singleSpaVue from 'single-spa-vue'
 
 import Icon from '../components/Icon.vue'
 
-const Article = {
+const BrandLanding = {
   components: {
     Icon
   },
@@ -24,11 +19,11 @@ const Article = {
 const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
-    render: (h) => h(Article)
+    render: (h) => h(BrandLanding)
   }
 })
 
-export default Article
+export default BrandLanding
 export const bootstrap = vueLifecycles.bootstrap
 export const mount = vueLifecycles.mount
 export const unmount = vueLifecycles.unmount

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from 'vue-router'
-import Article from '../views/Article.vue'
+import View2 from '../views/View2.vue'
 
 Vue.use(VueRouter)
 
@@ -10,7 +10,7 @@ export function createRouter() {
     routes: [
       {
         path: '/',
-        component: Article
+        component: View2
       }
     ]
   })

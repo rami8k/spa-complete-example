@@ -1,9 +1,9 @@
 <template>
   <div>
-    App2 - Article Page
+    App1 - View1
     <Icon>
       <template v-slot:label>
-        Manage Subscription
+        some component
       </template>
     </Icon>
   </div>
