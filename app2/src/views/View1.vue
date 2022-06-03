@@ -1,6 +1,6 @@
 <template>
   <div>
-    App2 - View2
+    App2 - View1
   </div>
 </template>
 
