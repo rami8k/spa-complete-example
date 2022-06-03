@@ -12,7 +12,7 @@ const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
     render: (h) => h(App),
-    template: '<NewsApp />',
+    template: '<App />',
     router,
   }
 })

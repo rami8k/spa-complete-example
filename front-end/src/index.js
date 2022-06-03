@@ -8,21 +8,21 @@ let importedApps = []
 let shareScope = []
 
 registerApplication({
-  name: 'app1-article',
-  app: () => importApp('app1/Article', shareScope, importedApps),
-  activeWhen: () => regexp.test('/news/:channel/:article')
-})
-
-registerApplication({
   name: 'app1-view1',
   app: () => importApp('app1/view1', shareScope, importedApps),
-  activeWhen: () => regexp.test('/news/bloomberglawnews')
+  activeWhen: () => true
 })
 
 registerApplication({
-  name: 'app2-view2',
-  app: () => importApp('app2/view2', [], importedApps),
-  activeWhen: () => regexp.test('/news/bloomberglawnews')
+  name: 'app1-view2',
+  app: () => importApp('app1/view2', shareScope, importedApps),
+  activeWhen: () => true
+})
+
+registerApplication({
+  name: 'app2-view',
+  app: () => importApp('app2/view2', shareScope, importedApps),
+  activeWhen: () => true
 })
 
 // registerApplication(

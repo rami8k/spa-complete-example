@@ -52,7 +52,7 @@ module.exports = {
       library: { type: 'system' },
       filename: "remoteEntry.js",
       exposes: [
-        { 'view2': './src/views/View2' }
+        { 'view2': './src/views/View1' }
       ],
       shared: ['vue']
     })
